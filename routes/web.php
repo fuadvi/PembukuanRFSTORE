@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DasboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('layouts.dasboard');
-});
+Route::middleware(['auth:sanctum', 'verified'])->get('/', [DasboardController::class, 'index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
