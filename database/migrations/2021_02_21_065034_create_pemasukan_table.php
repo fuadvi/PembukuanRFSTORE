@@ -15,6 +15,13 @@ class CreatePemasukanTable extends Migration
     {
         Schema::create('pemasukan', function (Blueprint $table) {
             $table->id();
+            $table->string('nama_produk');
+            $table->integer('quantity')->nullable();
+            $table->integer('price');
+            $table->date('purchase_date');
+
+
+            $table->softDeletes();
             $table->timestamps();
         });
     }
