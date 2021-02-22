@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
-        <div class="max-w-lg max-w-xs bg-blue-800 shadow-2xl rounded-lg mx-auto text-center py-12 mt-4 rounded-xl">
+        <div class="max-w-lg bg-blue-800 shadow-2xl rounded-lg mx-auto text-center py-12 mt-4">
             <h1 class="text-gray-200 text-center font-extrabold -mt-3 text-3xl">Modal Usaha</h1>
             <div class="container py-5 max-w-md mx-auto">
                 <form method="POST" action="{{ route('modal.store') }}">
