@@ -14,7 +14,8 @@ class AddIdPemasukanToTableKasScarllate extends Migration
     public function up()
     {
         Schema::table('kasscarllate', function (Blueprint $table) {
-            $table->integer('pemasukan_id');
+            $table->integer('pemasukan_id')->nullable();
+            $table->integer('pengeluaran_id')->nullable();
         });
     }
 
@@ -26,7 +27,7 @@ class AddIdPemasukanToTableKasScarllate extends Migration
     public function down()
     {
         Schema::table('kasscarllate', function (Blueprint $table) {
-            $table->dropColumn('pemasukan_id');
+            $table->dropColumn(['pemasukan_id', 'pengeluaran_id']);
         });
     }
 }

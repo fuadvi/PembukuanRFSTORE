@@ -19,7 +19,8 @@ class CreatePengeluaranTable extends Migration
             $table->string('description')->nullable();
             $table->integer('quantity')->nullable();
             $table->integer('price');
-            $table->date('purchase_ date');
+            $table->date('purchase_date');
+            $table->string('status');
 
             $table->softDeletes();
             $table->timestamps();

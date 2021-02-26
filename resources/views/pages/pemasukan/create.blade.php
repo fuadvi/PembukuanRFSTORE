@@ -27,7 +27,7 @@
                             <input class='appearance-none block w-full bg-white text-gray-700 border border-gray-400 shadow-inner rounded-md py-3 px-4 leading-tight focus:outline-none  focus:border-gray-500' id='grid-text-1' name="purchase_date" type='date'  required>
                         </div>
                         <div class='w-full md:w-full px-3 mb-6'>
-                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>Tanggal Pemasukan</label>
+                            <label class='block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2' for='grid-text-1'>Status</label>
                             <div class="lex-shrink w-full inline-block relative">
                                 <select name="status" class='block appearance-none text-gray-600 w-full bg-white border border-gray-400 shadow-inner px-4 py-2 pr-8 rounded'>
                                     <option value="PRIBADI">Uang Pribadi</option>

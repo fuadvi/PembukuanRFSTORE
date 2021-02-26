@@ -6,7 +6,7 @@
         <div class="card bg-white py-3 px-5 rounded-xl flex flex-col mb-5">
             <div class="w-full py-3">
                 <div class="inline-block mr-2 mt-2">
-                    <a href="{{ route('pemasukan.create') }}" class="transform hover:scale-110 motion-reduce:transform-none focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:shadow-lg">Tambah Pemasukan</a>
+                    <a href="{{ route('pengeluaran.create') }}" class="transform hover:scale-110 motion-reduce:transform-none focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:shadow-lg">Tambah Pemasukan</a>
                 </div>
             </div>
         </div>
@@ -44,7 +44,7 @@
                             </td>
                         </tr>
                         @empty
-                        <td class="text-center mt-10 pt-10 text-red-400" colspan="6">Belom Ada Pemasukan Dana</td>
+                        <td class="text-center mt-10 pt-10 text-red-400" colspan="6">Belom Ada Pengeluaran Dana</td>
                         @endforelse
                     </tbody>
                 </table>

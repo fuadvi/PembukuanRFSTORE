@@ -3,6 +3,7 @@
 use App\Http\Controllers\DasboardController;
 use App\Http\Controllers\ModalController;
 use App\Http\Controllers\PemasukanController;
+use App\Http\Controllers\PengeluaranController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,10 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', [DasboardController::class, 'index']);
+Route::middleware(['auth:sanctum', 'verified'])->middleware(['auth:sanctum', 'verified']);
 
-Route::resource('/modal', ModalController::class);
-Route::resource('/pemasukan', PemasukanController::class);
+Route::resource('/modal', ModalController::class)->middleware(['auth:sanctum', 'verified']);
+Route::resource('/pemasukan', PemasukanController::class)->middleware(['auth:sanctum', 'verified']);
+Route::resource('/pengeluaran', PengeluaranController::class)->middleware(['auth:sanctum', 'verified']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
