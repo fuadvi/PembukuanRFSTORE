@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\KasScarllate;
 use App\Models\Pengeluaran;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class PengeluaranController extends Controller
 {
@@ -43,15 +44,20 @@ class PengeluaranController extends Controller
         $pengeluaran = Pengeluaran::create($data);
 
         $DataKas = KasScarllate::all();
+        $uang_kas = 0;
         foreach ($DataKas as $kas) {
             $uang_kas = $kas->uang_kas;
         }
 
-        if ($request->status == "PRIBADI") {
-            $data['id_pengeluaran'] = $pengeluaran->id;
-            $data['price'] = ($request->price * $request->quantity) - $uang_kas;
-            KasScarllate::create($data);
+        if ($request->status == "KAS") {
+            KasScarllate::create([
+                'pengeluaran_id' => $pengeluaran->id,
+                'uang_kas' =>  $uang_kas - ($request->price * $request->quantity),
+                'tanggal_masuk' => Carbon::now()
+            ]);
+            return redirect()->route('pengeluaran.index');
         }
+        return redirect()->route('pengeluaran.index');
     }
 
     /**
@@ -96,6 +102,9 @@ class PengeluaranController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Pengeluaran::findOrFail($id);
+        $item->delete();
+
+        return redirect()->route('pengeluaran.index');
     }
 }

@@ -42,6 +42,7 @@ class PemasukanController extends Controller
         $data = $request->all();
 
         $Datakass = KasScarllate::all();
+        $uang_kas = 0;
         foreach ($Datakass as $kas) {
             $uang_kas = $kas->uang_kas;
         }

@@ -7,7 +7,7 @@
         <div class="container mx-auto">
             <div class="inputs w-full max-w-2xl p-6 mx-auto">
                 <h2 class="text-2xl text-gray-900">Pengeluaran</h2>
-                <form class="mt-6 border-t border-gray-400 pt-4" action="{{ route('pemasukan.store') }}" method="POST">
+                <form class="mt-6 border-t border-gray-400 pt-4" action="{{ route('pengeluaran.store') }}" method="POST">
                     @csrf
                     <div class='flex flex-wrap -mx-3 mb-6'>
                         <div class='w-full md:w-full px-3 mb-6'>

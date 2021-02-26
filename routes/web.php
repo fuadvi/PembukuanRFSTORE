@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->middleware(['auth:sanctum', 'verified']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/', [DasboardController::class, 'index']);
 
 Route::resource('/modal', ModalController::class)->middleware(['auth:sanctum', 'verified']);
 Route::resource('/pemasukan', PemasukanController::class)->middleware(['auth:sanctum', 'verified']);
