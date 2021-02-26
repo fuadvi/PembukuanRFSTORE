@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\KasScarllate;
 use App\Models\Pemasukan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class PemasukanController extends Controller
 {
@@ -25,7 +27,7 @@ class PemasukanController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.pemasukan.create');
     }
 
     /**
@@ -36,7 +38,36 @@ class PemasukanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $Datakass = KasScarllate::all();
+        foreach ($Datakass as $kas) {
+            $uang_kas = $kas->uang_kas;
+        }
+
+        // dd($kas);
+        if ($data) {
+            if ($request->status == "PRIBADI") {
+                // $data['price'] = ($request->price * $request->quantity) - (55000 * $request->quantity);
+                $pemasukan = Pemasukan::create($data);
+                KasScarllate::create([
+                    'pemasukan_id' => $pemasukan->id,
+                    'uang_kas' => (($request->price * $request->quantity) - (55000 * $request->quantity)) + $uang_kas,
+                    'tanggal_masuk' => Carbon::now()
+                ]);
+                return redirect()->route('pemasukan.index');
+            }
+
+            $pemasukan = Pemasukan::create($data);
+            KasScarllate::create([
+                'pemasukan_id' => $pemasukan->id,
+                'uang_kas' => ($request->price * $request->quantity) + $uang_kas,
+                'tanggal_masuk' => Carbon::now()
+            ]);
+            return redirect()->route('pemasukan.index');
+        }
+
+        return redirect()->back();
     }
 
     /**
@@ -81,6 +112,9 @@ class PemasukanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $item = Pemasukan::findOrfail($id);
+        $item->delete();
+
+        return redirect()->route('pemasukan.index');
     }
 }

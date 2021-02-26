@@ -12,6 +12,11 @@ class Pemasukan extends Model
     protected $table = 'pemasukan';
 
     protected $fillable = [
-        ''
+        'nama_produk', 'quantity', 'price', 'purchase_date', 'status'
     ];
+
+    public function kas()
+    {
+        return $this->hasMany(KasScarllate::class, 'id');
+    }
 }

@@ -3,7 +3,14 @@
 @section('content')
     <div class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
         <!-- component -->
-        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8 mt-1">
+        <div class="card bg-white py-3 px-5 rounded-xl flex flex-col mb-5">
+            <div class="w-full py-3">
+                <div class="inline-block mr-2 mt-2">
+                    <a href="{{ route('pemasukan.create') }}" class="transform hover:scale-110 motion-reduce:transform-none focus:outline-none text-white text-sm py-2.5 px-5 rounded-md bg-blue-500 hover:shadow-lg">Tambah Pemasukan</a>
+                </div>
+            </div>
+        </div>
+        <div class="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 pr-10 lg:px-8">
             <div class="align-middle inline-block min-w-full shadow overflow-hidden bg-white shadow-dashboard px-8 pt-3 rounded-bl-lg rounded-br-lg">
                 <table class="min-w-full">
                     <thead>
