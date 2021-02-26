@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PemasukanRequest;
 use App\Models\KasScarllate;
 use App\Models\Pemasukan;
 use Illuminate\Http\Request;
@@ -36,7 +37,7 @@ class PemasukanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PemasukanRequest $request)
     {
         $data = $request->all();
 
