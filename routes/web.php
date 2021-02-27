@@ -17,11 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/', [DasboardController::class, 'index']);
+Route::middleware(['auth:sanctum', 'verified'])->get('/', [DasboardController::class, 'index'])->name('home');
 
-Route::resource('/modal', ModalController::class)->middleware(['auth:sanctum', 'verified']);
-Route::resource('/pemasukan', PemasukanController::class)->middleware(['auth:sanctum', 'verified']);
-Route::resource('/pengeluaran', PengeluaranController::class)->middleware(['auth:sanctum', 'verified']);
+Route::resource('/modal', ModalController::class)->middleware(['auth:sanctum', 'verified'])->name('index', 'modal');
+Route::resource('/pemasukan', PemasukanController::class)->middleware(['auth:sanctum', 'verified'])->name('index', 'pemasukan');;
+Route::resource('/pengeluaran', PengeluaranController::class)->middleware(['auth:sanctum', 'verified'])->name('index', 'pengeluaran');;
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

@@ -16,9 +16,9 @@ class PengeluaranController extends Controller
      */
     public function index()
     {
-        $data = Pengeluaran::all();
+        $items = Pengeluaran::all();
         return view('pages.pengeluaran.index')->with([
-            'data' => $data
+            'items' => $items
         ]);
     }
 
