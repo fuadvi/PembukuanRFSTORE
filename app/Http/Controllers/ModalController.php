@@ -14,6 +14,7 @@ class ModalController extends Controller
      */
     public function index()
     {
+
         return view('pages.modals.index');
     }
 

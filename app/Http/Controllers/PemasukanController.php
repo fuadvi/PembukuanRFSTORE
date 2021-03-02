@@ -66,7 +66,7 @@ class PemasukanController extends Controller
                 'uang_kas' => ($request->price * $request->quantity) + $uang_kas,
                 'tanggal_masuk' => Carbon::now()
             ]);
-            return redirect()->route('pemasukan.index');
+            return redirect()->route('pemasukan');
         }
 
         return redirect()->back();
