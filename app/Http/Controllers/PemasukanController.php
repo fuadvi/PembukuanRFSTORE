@@ -17,7 +17,8 @@ class PemasukanController extends Controller
      */
     public function index()
     {
-        $items = Pemasukan::all();
+        $items = Pemasukan::paginate(2);
+        // $items->withPath('custom/url');
         return view('pages.pemasukan.index')->with(['items' => $items]);
     }
 
@@ -114,9 +115,9 @@ class PemasukanController extends Controller
      */
     public function destroy($id)
     {
-        $item = Pemasukan::findOrfail($id);
+        $item = Pemasukan::find($id);
         $item->delete();
 
-        return redirect()->route('pemasukan.index');
+        return redirect()->route('pemasukan');
     }
 }
