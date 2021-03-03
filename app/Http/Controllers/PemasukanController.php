@@ -17,7 +17,7 @@ class PemasukanController extends Controller
      */
     public function index()
     {
-        $items = Pemasukan::paginate(2);
+        $items = Pemasukan::paginate(10);
         // $items->withPath('custom/url');
         return view('pages.pemasukan.index')->with(['items' => $items]);
     }

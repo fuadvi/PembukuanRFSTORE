@@ -12,7 +12,7 @@ class Pengeluaran extends Model
 
     protected $table = 'pengeluaran';
     protected $fillable = [
-        'nama_produk', 'descripion', 'quantity',
+        'nama_produk', 'description', 'quantity',
         'price', 'purchase_date', 'status'
     ];
 }

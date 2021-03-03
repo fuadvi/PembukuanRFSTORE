@@ -16,7 +16,7 @@ class PengeluaranController extends Controller
      */
     public function index()
     {
-        $items = Pengeluaran::all();
+        $items = Pengeluaran::paginate(10);
         return view('pages.pengeluaran.index')->with([
             'items' => $items
         ]);
@@ -55,9 +55,9 @@ class PengeluaranController extends Controller
                 'uang_kas' =>  $uang_kas - ($request->price * $request->quantity),
                 'tanggal_masuk' => Carbon::now()
             ]);
-            return redirect()->route('pengeluaran.index');
+            return redirect()->route('pengeluaran');
         }
-        return redirect()->route('pengeluaran.index');
+        return redirect()->route('pengeluaran');
     }
 
     /**
@@ -105,6 +105,6 @@ class PengeluaranController extends Controller
         $item = Pengeluaran::findOrFail($id);
         $item->delete();
 
-        return redirect()->route('pengeluaran.index');
+        return redirect()->route('pengeluaran');
     }
 }
